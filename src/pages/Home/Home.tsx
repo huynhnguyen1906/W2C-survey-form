@@ -50,6 +50,9 @@ function Home() {
 	return (
 		<div>
 			<Header />
+			<div className="logo">
+				<img src="/logo.svg" alt="logo" />
+			</div>
 			<div className="main">
 				<div className="inputForm">
 					<div className="inputBox">
@@ -102,12 +105,10 @@ function Home() {
 							</tbody>
 						</table>
 					</div>
-					<div className="inputBox">
-						<div className="submitBtn">
-							<button onClick={handleSubmit} className="btn">
-								送信
-							</button>
-						</div>
+					<div className="submitBtn">
+						<button onClick={handleSubmit} className="btn">
+							送信
+						</button>
 					</div>
 				</div>
 			</div>
