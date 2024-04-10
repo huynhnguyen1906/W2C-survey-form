@@ -6,14 +6,16 @@ import { DocumentData } from "@firebase/firestore-types";
 const Test: React.FC = () => {
 	useEffect(() => {
 		// Test connection
-		db.collection("test")
-			.doc("testDoc")
+		db.collection("bookmark")
 			.get()
-			.then((doc: DocumentData) => {
-				if (doc.exists) {
+			.then((querySnapshot) => {
+				if (!querySnapshot.empty) {
 					console.log("Firebase connection success");
+					querySnapshot.forEach((doc: DocumentData) => {
+						console.log(doc.id, " => ", doc.data());
+					});
 				} else {
-					console.log("No such document!");
+					console.log("No documents found!");
 				}
 			})
 			.catch((error: Error) => {
