@@ -9,12 +9,43 @@ html {
 *::after {
 	box-sizing: border-box;
 }
-
+:where(
+		p,
+		span,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		a,
+		li,
+		ul,
+		ol,
+		button,
+		input,
+		textarea
+	) {
+	margin: 0;
+}
+:where(a, button) {
+	text-decoration: none;
+	color: #000;
+	cursor: pointer;
+}
+:where(button, input, textarea) {
+	outline: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	user-select: none;
+}
 body {
 	font-family: "Roboto", sans-serif;
-	background-color: #f1f1f1;
+	background-color: #ffffff;
 	font-size: 1.6rem;
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
+	overflow: auto;
 }
