@@ -1,7 +1,8 @@
 import "./style.scss";
-
-import Header from "~/components/Header/Header";
+import db from "~/firebase/firebase-config";
+import { collection, addDoc } from "firebase/firestore";
 import { useState, useRef } from "react";
+import Header from "~/components/Header/Header";
 
 function Home() {
 	const [studentId, setStudentId] = useState("");
@@ -11,7 +12,7 @@ function Home() {
 
 	const studentIdInputRef = useRef<HTMLInputElement>(null);
 
-	const handleSubmit = () => {
+	const handleSubmit = async () => {
 		if (studentId === "" || classId === "" || name === "") {
 			alert("必須項目を入力してください！！");
 			return;
@@ -23,6 +24,20 @@ function Home() {
 				studentIdInputRef.current.focus();
 			}
 			return;
+		}
+
+		const bookmarksCollection = collection(db, "w2c-survey");
+		try {
+			await addDoc(bookmarksCollection, {
+				student_id: studentId,
+				class: classId,
+				name: name,
+				message: message,
+				created_at: new Date(),
+				have_read: false,
+			});
+		} catch (e) {
+			console.error("Error adding document: ", e);
 		}
 
 		console.log(studentId, classId, name, message);
