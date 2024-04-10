@@ -1,0 +1,150 @@
+.container {
+	margin-top: 10rem;
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	.surveyAnswerBox {
+		position: relative;
+		height: auto;
+		width: 90%;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		border: 1.5px solid #a3a3a3;
+		border-radius: 1rem;
+		margin-top: 2rem;
+		.box {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			min-height: 10rem;
+			height: auto;
+			max-height: 30rem;
+			width: 24rem;
+			.action {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 4rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-start;
+				border-right: #a3a3a3 solid 1.5px;
+				border-top-left-radius: 1rem;
+				border-bottom-left-radius: 1rem;
+				overflow: hidden;
+				button {
+					width: 4rem;
+					height: 5rem;
+					background-color: #fff;
+				}
+			}
+			.studentInfo {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 4rem;
+				width: 20rem;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-start;
+				border-right: #a3a3a3 solid 1.5px;
+				padding: 10px 10px;
+				.studentName {
+					font-size: 1.5rem;
+					width: 100%;
+					height: auto;
+				}
+				.studentClass {
+					font-size: 1.5rem;
+					width: 100%;
+					height: auto;
+					margin-top: 1rem;
+				}
+				.createdDate {
+					font-size: 1.5rem;
+					width: 100%;
+					height: auto;
+					margin-top: 1rem;
+				}
+				span {
+					font-size: 1.5rem;
+					font-weight: 600;
+					margin-right: 1rem;
+				}
+			}
+		}
+
+		.message {
+			position: relative;
+			width: calc(100% - 24rem);
+			min-height: 10rem;
+			height: auto;
+			max-height: 30rem;
+			padding: 10px 10px;
+			overflow: auto;
+		}
+	}
+	.checked {
+		border: 1.5px solid #a3a3a3;
+		color: #a3a3a3;
+	}
+}
+@media screen and (max-width: 480px) {
+	.container {
+		margin-top: 5rem;
+		padding: 0 1rem;
+		.surveyAnswerBox {
+			width: 100%;
+			height: auto;
+			.box {
+				position: relative;
+				width: 12rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-start;
+				.action {
+					position: relative;
+					flex-direction: row;
+					justify-content: space-between;
+					width: 10rem;
+					height: auto;
+					border: none;
+					margin-top: 1rem;
+					button {
+						width: 4rem;
+						height: 4rem;
+					}
+				}
+				.studentInfo {
+					position: relative;
+					border: none;
+					left: 0;
+					width: 100%;
+					span {
+						margin-right: 0;
+					}
+				}
+			}
+			.bar {
+				width: 1.5px;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 12rem;
+				background-color: #a3a3a3;
+			}
+			.message {
+				position: relative;
+				left: 0;
+				width: calc(100% - 12rem);
+			}
+		}
+	}
+}
