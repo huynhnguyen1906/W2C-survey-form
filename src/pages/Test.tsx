@@ -1,19 +1,17 @@
 import React, { useEffect } from "react";
 import Header from "~/components/Header/Header";
-import db from "~/firebase/Firebase-config";
-import { DocumentData } from "@firebase/firestore-types";
+import db from "~/firebase/firebase-config";
+import { collection, getDocs, QueryDocumentSnapshot } from "firebase/firestore";
 
 const Test: React.FC = () => {
 	useEffect(() => {
 		// Test connection
-		db.collection("bookmark")
-			.get()
+		const bookmarksCollection = collection(db, "bookmarks");
+		getDocs(bookmarksCollection)
 			.then((querySnapshot) => {
 				if (!querySnapshot.empty) {
 					console.log("Firebase connection success");
-					querySnapshot.forEach((doc: DocumentData) => {
-						console.log(doc.id, " => ", doc.data());
-					});
+					querySnapshot.docs.forEach((doc: QueryDocumentSnapshot) => {});
 				} else {
 					console.log("No documents found!");
 				}
