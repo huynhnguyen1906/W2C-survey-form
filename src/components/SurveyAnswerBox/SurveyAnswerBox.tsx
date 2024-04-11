@@ -1,20 +1,10 @@
 import { FaTrash } from "react-icons/fa";
 import { ImCheckboxUnchecked, ImCheckboxChecked } from "react-icons/im";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
-import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import db from "~/firebase/firebase-config";
 import { useState } from "react";
-
-// ... rest of your code
-interface Survey {
-	id: string;
-	name: string;
-	class: string;
-	message: string;
-	have_read: boolean;
-	created_at: firebase.firestore.Timestamp;
-}
+import { Survey } from "~/pages/SurveyList/SurveyList";
 
 interface SurveyAnswerBoxProps {
 	surveyInfo: Survey;

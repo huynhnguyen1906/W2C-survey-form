@@ -8,7 +8,7 @@ import db from "~/firebase/firebase-config";
 import Header from "~/components/Header/Header";
 import SurveyAnswerBox from "~/components/SurveyAnswerBox/SurveyAnswerBox";
 
-interface Survey {
+export interface Survey {
 	id: string;
 	name: string;
 	class: string;
