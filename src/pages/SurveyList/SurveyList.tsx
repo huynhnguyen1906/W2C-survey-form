@@ -28,9 +28,14 @@ function SurveyList() {
 
 	useEffect(() => {
 		const checkPassword = () => {
-			const password = prompt("Please enter your password");
-			if (password !== "yuutonobaka") {
-				navigate("/");
+			const storedPassword = sessionStorage.getItem("password");
+			if (storedPassword !== "yuutonobaka") {
+				const password = prompt("Please enter your password");
+				if (password !== "yuutonobaka") {
+					navigate("/");
+				} else {
+					sessionStorage.setItem("password", password);
+				}
 			}
 		};
 
