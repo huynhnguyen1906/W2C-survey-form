@@ -2,6 +2,8 @@
 
 This is a survey form application built with React and Firebase. It's the first project where I'm using TypeScript.
 
+<p align="center">
+
 ## Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
